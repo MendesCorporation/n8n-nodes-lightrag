@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-lightrag",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Custom node for querying LightRAG inside n8n workflows or AI Chatflows",
   "files": [
     "dist"
@@ -31,7 +31,7 @@
       "dist/nodes/LightRag/LightRagQuery.node.js",
       "dist/nodes/LightRag/LightRagToolQuery.node.js",
       "dist/nodes/LightRag/LightRagInsertText.node.js",
-      "dist/nodes/LightRag/LightRagToolQuery.node.js",
+      "dist/nodes/LightRag/LightRagToolInsertText.node.js",
       "dist/nodes/LightRag/LightRagUpload.node.js"
     ]
   },
