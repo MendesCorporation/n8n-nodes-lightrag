@@ -1,0 +1,23 @@
+# Ignorar tudo exceto /dist
+*.ts
+src/
+nodes/
+*.log
+*.env
+*.env.*
+*.md~
+*.swp
+.vscode/
+test/
+__tests__/
+coverage/
+docs/
+tsconfig.json
+tsconfig.*.json
+jest.config.js
+babel.config.js
+.nyc_output/
+node_modules/
+.npmignore
+.gitignore
+index.ts

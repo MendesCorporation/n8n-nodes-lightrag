@@ -1,0 +1,59 @@
+{
+  "name": "n8n-nodes-lightrag",
+  "version": "1.0.8",
+  "description": "Custom node for querying LightRAG inside n8n workflows or AI Chatflows",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "n8n",
+    "n8n-nodes", 
+    "lightRAG",
+    "AI",
+    "vector store"
+  ],
+  "author": "Hélio Mendes - Apptrix",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .ts",
+    "package": "npm run build && npm pack"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/LightRagApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/LightRag/LightRagQuery.node.js",
+      "dist/nodes/LightRag/LightRagToolQuery.node.js",
+      "dist/nodes/LightRag/LightRagInsertText.node.js",
+      "dist/nodes/LightRag/LightRagToolQuery.node.js",
+      "dist/nodes/LightRag/LightRagUpload.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/n8n-nodes-lightrag.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
