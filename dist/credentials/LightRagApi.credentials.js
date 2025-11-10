@@ -30,25 +30,29 @@ class LightRagApi {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
+                    X-API-Key: $credentials.apiKey
                 },
                 timeout: 10000,
             },
         };
     }
-    // Autenticação para todos os requests do node - adiciona query parameter
+    // Autenticação para todos os requests do node - adiciona header X-API-Key
     authenticate(credentials, requestOptions) {
         const apiKey = credentials.apiKey;
         if (apiKey === null || apiKey === void 0 ? void 0 : apiKey.trim()) {
-            // Adiciona api_key_header_value como query parameter na URL
-            const url = new URL(requestOptions.url, requestOptions.baseURL || credentials.url);
-            url.searchParams.set('api_key_header_value', apiKey.trim());
-            requestOptions.url = url.pathname + url.search;
+            // Garante o header accept e adiciona X-API-Key
+            requestOptions.headers = {
+                accept: 'application/json',
+                'X-API-Key': apiKey.trim(), // Adiciona o apiKey como header
+                ...requestOptions.headers,
+            };
+        } else {
+            // Garante o header accept apenas se não houver apiKey
+            requestOptions.headers = {
+                accept: 'application/json',
+                ...requestOptions.headers,
+            };
         }
-        // Garante o header accept
-        requestOptions.headers = {
-            accept: 'application/json',
-            ...requestOptions.headers,
-        };
         return Promise.resolve(requestOptions);
     }
 }
