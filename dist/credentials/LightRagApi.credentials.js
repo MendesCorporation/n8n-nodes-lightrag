@@ -30,7 +30,7 @@ class LightRagApi {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                    X-API-Key: $credentials.apiKey
+                    'X-API-Key': '={{$credentials.apiKey}}',
                 },
                 timeout: 10000,
             },
@@ -46,7 +46,8 @@ class LightRagApi {
                 'X-API-Key': apiKey.trim(), // Adiciona o apiKey como header
                 ...requestOptions.headers,
             };
-        } else {
+        }
+        else {
             // Garante o header accept apenas se não houver apiKey
             requestOptions.headers = {
                 accept: 'application/json',

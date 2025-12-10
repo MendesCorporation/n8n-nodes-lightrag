@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-lightrag",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "description": "Custom node for querying LightRAG inside n8n workflows or AI Chatflows",
   "files": [
     "dist"
@@ -51,7 +51,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/n8n-nodes-lightrag.git"
+    "url": "https://github.com/MendesCorporation/n8n-nodes-lightrag.git"
   },
   "publishConfig": {
     "access": "public"
