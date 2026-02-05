@@ -134,10 +134,12 @@ class LightRagQuery {
         const headers = {
             'Content-Type': 'application/json',
         };
-        let queryUrl = `${credentials.url}/query`;
         if (credentials.apiKey && credentials.apiKey.trim() !== '') {
-            queryUrl += `?api_key_header_value=${encodeURIComponent(credentials.apiKey)}`;
+            headers['X-API-Key'] = credentials.apiKey.trim();
+            //otherwice we receive INFO: 127.0.0.1:46506 - "POST /query?api_key_header_value=bigSecretKey HTTP/1.1" 403
         }
+        const queryUrl = `${credentials.url}/query`;
+        
         const responseData = await this.helpers.request({
             method: 'POST',
             uri: queryUrl,
