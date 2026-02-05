@@ -151,12 +151,11 @@ export class LightRagQuery implements INodeType {
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
     };
-    let queryUrl = `${credentials.url}/query`;
     
     if (credentials.apiKey && credentials.apiKey.trim() !== '') {
-      queryUrl += `?api_key_header_value=${encodeURIComponent(credentials.apiKey)}`;
+      headers['X-API-Key'] = credentials.apiKey.trim();
     }
-
+    const queryUrl = `${credentials.url}/query`;
     const responseData = await this.helpers.request({
       method: 'POST',
       uri: queryUrl,
